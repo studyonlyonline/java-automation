@@ -19,15 +19,7 @@ dependencies {
     // ZXing library for QR code generation
     implementation 'com.google.zxing:core:3.5.2'
     implementation 'com.google.zxing:javase:3.5.2'
-    
-    // Lombok for reducing boilerplate code
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-    
-    // Selenium WebDriver for automation
-    implementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
-    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:4.15.0'
-    
+
     // Test dependencies
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -38,5 +30,13 @@ test {
 }
 
 application {
-    mainClass = 'org.example.Main'
+    mainClass = 'qrlabel.examples.CustomQRCodeLabelPrinterExample'
+}
+
+tasks.register('runNameGenerator', JavaExec) {
+    group = 'Application'
+    description = 'Runs the QRCodeNameGeneratorMain class'
+
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'qrlabel.helper.QRCodeNameGeneratorMain'
 }

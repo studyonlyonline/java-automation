@@ -1,4 +1,3 @@
-
 rootProject.name = 'java-automation'
 
-// rootProject.name = 'JavaAutomation'
+include 'qrlabel'
